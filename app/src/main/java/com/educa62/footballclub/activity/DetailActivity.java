@@ -14,12 +14,17 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        
         ActionBar abDetail = getSupportActionBar();
         TextView tvDetail = findViewById(R.id.tvDetail);
         Bundle bundle = getIntent().getExtras();
+       
+        String title = bundle.getString(Variables.strTeam);
+        String txtDetail = bundle.getString(Variables.strDescriptionEN);
+        
         if (bundle != null && abDetail != null) {
-            abDetail.setTitle(bundle.getString(Variables.strTeam));
-            tvDetail.setText(bundle.getString(Variables.strDescriptionEN));
+            abDetail.setTitle(title);
+            tvDetail.setText(txtDetail);
         } else {
             onBackPressed();
         }
